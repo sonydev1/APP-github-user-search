@@ -6,9 +6,11 @@ export function getUser(userName) {
   return fetch(url)
     .then((res) => {
       if (res.status !== 200) {
-        throw console.error(res.status);
+        console.error(res.status);
+      }else{
+
+        return res.json();
       }
-      return res.json();
     })
     .catch((err) => {
       console.log(err);

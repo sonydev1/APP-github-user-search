@@ -1,45 +1,48 @@
 import React from 'react'
  import { IoBusiness, IoLink, IoLocation, IoLogoTwitter } from 'react-icons/io5' 
 
-function BodyAbouth() {
+function BodyAbouth({bio,repos,following,followers,locate,twitter,copany,blog}) {
   return (
     <div className=" lg:col-end-4 lg:col-span-2 grid gap-4">
 
     <p>
-    Te enseño Programación y Desarrollo Web. Creador de contenido en Twitch y YouTube.
+    {bio || 'This profile has no bio'}
     </p>
     <div className="bg-[#141c2f] flex  justify-around py-3 items-center text-whithe text-center rounded-xl">
       <div className=" ">
         <p>Repo</p>
-        <span className="font-sans font-bold">25</span>
+        <span className="font-sans font-bold">{repos}</span>
       </div>
       <div className=" ">
         <p>Followers</p>
-        <span className="font-sans font-bold">3938</span>
+        <span className="font-sans font-bold">{followers}</span>
       </div>
       <div className=" ">
         <p>Following</p>
-        <span className="font-sans font-bold">9</span>
+        <span className="font-sans font-bold">{following}</span>
       </div>
     </div>
 
   <div className="md:grid md:grid-cols-2 gap-4">
     <article className="flex gap-4 items-center w-full">
       <IoLocation />
-      Cartagena
+      {locate || "Not Available"}
     </article>
     <article className="flex gap-4 items-center w-full">
       <IoLogoTwitter />
-      Not Available
+     
+     {!twitter ? "Not Available":<a href={`https://twitter.com/${twitter}`} target='_blank'> {twitter }</a> 
+     }
     </article>
     <article className="flex gap-4 items-center w-full">
       <IoLink />
-      <a href="https://www.frontendmentor.io/">frontendmentor.io</a> 
+      {!blog ? "Not Available":<a href={blog} target='_blank'> {blog }</a> 
+     }
     </article>
 
     <article className="flex gap-4 items-center w-full">
       <IoBusiness />
-      @github
+      {copany || "Not Available"}
     </article>
   </div> 
   </div>
